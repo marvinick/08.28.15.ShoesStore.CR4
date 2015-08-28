@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Chicken Wings Shoes Store</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                        Get yo' shoes on!!
+                    </a>
+                </li>
+                <li>
+                    <div>
+                       <form action='/store_results' class="navbar-form navbar-left">
+                         <div class='form-group'>
+                           <li><input id='name' name='name' class='form-control' type='text' placeholder="search store"></li>
+                           <li><button type="submit" class="btn btn-success">Search</button></li>
+                         </div>
+                       </form>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                       <form action='/brand_results' class="navbar-form navbar-left">
+                         <div class='form-group'>
+                           <li><input id='name' name='name' class='form-control' type='text' placeholder="search brand"></li>
+                           <li><button type="submit" class="btn btn-success">Search</button></li>
+                         </div>
+                       </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+       <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="container">
+                            <a href="#menu-toggle" class="btn btn-info" id="menu-toggle">Menu</a>
+                            <div class='container'>
+                                 <h1>Store Result</h1>
+                                <ul>
+                                    {% if matched_stores is not empty %}
+
+                                        {% for store in matched_stores %}
+                                          <h3><a href="/stores/{{ store.getId }}">{{ store.getName }}</a></h3>
+                                        {% endfor %}
+                                    {% else %}
+                                        <h4>No store match your search</h4>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/jquery.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</body>
+</html>

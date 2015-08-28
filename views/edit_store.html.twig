@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Chicken Wings Shoes Store</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                        Get yo' shoes on!!
+                    </a>
+                </li>
+                <li>
+                    <div>
+                       <form action='/store_results' class="navbar-form navbar-left">
+                         <div class='form-group'>
+                           <li><input id='name' name='name' class='form-control' type='text' placeholder="search store"></li>
+                           <li><button type="submit" class="btn btn-success">Search</button></li>
+                         </div>
+                       </form>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                       <form action='/brand_results' class="navbar-form navbar-left">
+                         <div class='form-group'>
+                           <li><input id='name' name='name' class='form-control' type='text' placeholder="search brand"></li>
+                           <li><button type="submit" class="btn btn-success">Search</button></li>
+                         </div>
+                       </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="container">
+                          <h1>update <em>{{ store.getName}}</em></h1>
+
+                          <form action="/stores/{{ store.getId }}" method="post">
+                            <input name="_method" type="hidden" value="patch">
+
+                            <div class='form-group'>
+                              <input id="name" name="name" type="text" placeholder="rename store">
+                            <button type="submit" class="btn-primary">Update</button>
+                            </div>
+                            <form action='/delete_store' method='post'>
+                                <button type='submit' class = "btn-danger">Delete this store</button>
+                            </form>
+                          </form>
+
+                        <br>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/jquery.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</body>
+</html>
+
