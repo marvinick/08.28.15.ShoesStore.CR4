@@ -57,7 +57,8 @@
                               <input id="name" name="name" type="text" placeholder="rename store">
                             <button type="submit" class="btn-primary">Update</button>
                             </div>
-                            <form action='/delete_store' method='post'>
+                            <form action='/stores/{{ store.getId }}' method='post'>
+                                <input name="_method" type="hidden" value="delete">
                                 <button type='submit' class = "btn-danger">Delete this store</button>
                             </form>
                           </form>

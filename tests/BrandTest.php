@@ -156,6 +156,28 @@
             //Assert
             $this->assertEquals($test_brand->getStores(), [$test_store, $test_store2]);
         }
+
+        function testDelete()
+        {
+
+            //Arrange
+            $name = "Chicken";
+            $id = 1;
+            $test_brand = new Brand($name, $id);
+            $test_brand->save();
+
+            $name = "Wings";
+            $id2 = 2;
+            $test_store = new Store($name, $id2);
+            $test_store->save();
+
+            //Act
+            $test_brand->addStore($test_store);
+            $test_brand->delete();
+
+            //Assert
+            $this->assertEquals([], $test_store->getBrands());
+        }
     }
 ?>
 

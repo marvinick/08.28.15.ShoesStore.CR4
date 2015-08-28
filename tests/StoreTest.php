@@ -132,13 +132,13 @@
 
             //Arrange
             $name = "Chicken";
-            $id2 = 2;
-            $test_brand = new Brand($name, $id2);
+            $id = 1;
+            $test_brand = new Brand($name, $id);
             $test_brand->save();
 
             $name = "Wings";
-            $id = 1;
-            $test_store = new Store($name, $id);
+            $id2 = 2;
+            $test_store = new Store($name, $id2);
             $test_store->save();
 
             //Act
