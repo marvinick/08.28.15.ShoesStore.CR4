@@ -131,21 +131,22 @@
         {
 
             //Arrange
+            $name = "Chicken";
+            $id2 = 2;
+            $test_brand = new Brand($name, $id2);
+            $test_brand->save();
+
             $name = "Wings";
             $id = 1;
-            $name2 = "Chicken";
-            $id2 = 2;
             $test_store = new Store($name, $id);
             $test_store->save();
-            $test_store2 = new Store($name2, $id2);
-            $test_store2->save();
-
 
             //Act
+            $test_store->addBrand($test_brand);
             $test_store->delete();
 
             //Assert
-            $this->assertEquals([$test_store2], Store::getAll());
+            $this->assertEquals([], $test_brand->getStores());
         }
 
         function testAddBrand()
