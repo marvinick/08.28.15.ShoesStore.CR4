@@ -20,6 +20,20 @@
             Store::deleteAll();
         }
 
+        function test_getId()
+        {
+            //Arrange
+            $name = "Wings";
+            $id = 1;
+            $test_store = new Store($name, $id);
+
+            //Act
+            $result = $test_store->getId();
+
+            //Assert
+            $this->assertEquals(1, $result);
+        }
+
         function test_save()
         {
           //arrange
@@ -68,6 +82,24 @@
             //Assert
             $result = Store::getAll();
             $this->assertEquals([], $result);
+        }
+
+        function test_find()
+        {
+            //Arrange
+            $name = "Wings";
+            $name2 = "Chicken";
+            $test_store = new Store($name);
+            $test_store->save();
+            $test_store2 = new Store($name2);
+            $test_store2->save();
+
+            //Act
+            $id = $test_store->getId();
+            $result = Store::find($id);
+
+            //Assert
+            $this->assertEquals($test_store, $result);
         }
     }
 ?>
