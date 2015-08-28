@@ -101,6 +101,23 @@
             //Assert
             $this->assertEquals($test_store, $result);
         }
+
+        function testUpdate()
+        {
+            //Arrange
+            $name = "Wings";
+            $id = null;
+            $test_store = new Store($name, $id);
+            $test_store->save();
+
+            $new_name = "Chicken";
+
+            //Act
+            $test_store->update($new_name);
+
+            //Assert
+            $this->assertEquals("Chicken", $test_store->getName());
+        }
     }
 ?>
 
