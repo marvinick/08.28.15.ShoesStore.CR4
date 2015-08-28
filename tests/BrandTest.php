@@ -12,7 +12,7 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    class StoreTest extends PHPUnit_Framework_TestCase
+    class BrandTest extends PHPUnit_Framework_TestCase
     {
 
          protected function tearDown()
@@ -73,7 +73,7 @@
             $name2 = "Chicken";
             $test_brand = new Brand($name);
             $test_brand->save();
-            $test_brand2 = new Store($name2);
+            $test_brand2 = new Brand($name2);
             $test_brand2->save();
 
             //Act
