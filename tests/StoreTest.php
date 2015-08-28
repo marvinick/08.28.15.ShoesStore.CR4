@@ -18,6 +18,7 @@
          protected function tearDown()
         {
             Store::deleteAll();
+            Brand::deleteAll();
         }
 
         function test_getId()
@@ -38,7 +39,8 @@
         {
           //arrange
           $name = "Wings";
-          $test_store = new Store($name);
+          $id = 1;
+          $test_store = new Store($name, $id);
 
           //act
           $test_store->save();
@@ -53,10 +55,12 @@
         {
           //arrange
           $name = "Wings";
+          $id = 1;
           $name2 = "Chicken";
-          $test_store = new Store($name);
+          $id2 = 2;
+          $test_store = new Store($name, $id);
           $test_store->save();
-          $test_store2 = new Store($name2);
+          $test_store2 = new Store($name2, $id2);
           $test_store2->save();
 
           //act
@@ -70,10 +74,12 @@
         {
             //Arrange
             $name = "Wings";
+            $id = 1;
             $name2 = "Chicken";
-            $test_store = new Store($name);
+            $id2 = 2;
+            $test_store = new Store($name, $id);
             $test_store->save();
-            $test_store2 = new Store($name2);
+            $test_store2 = new Store($name2, $id2);
             $test_store2->save();
 
             //Act
@@ -88,10 +94,12 @@
         {
             //Arrange
             $name = "Wings";
+            $id = 1;
             $name2 = "Chicken";
-            $test_store = new Store($name);
+            $id2 = 2;
+            $test_store = new Store($name, $id);
             $test_store->save();
-            $test_store2 = new Store($name2);
+            $test_store2 = new Store($name2, $id2);
             $test_store2->save();
 
             //Act
@@ -106,7 +114,7 @@
         {
             //Arrange
             $name = "Wings";
-            $id = null;
+            $id = 1;
             $test_store = new Store($name, $id);
             $test_store->save();
 
@@ -121,14 +129,15 @@
 
         function testDelete()
         {
+
             //Arrange
             $name = "Wings";
-            $id = null;
+            $id = 1;
+            $name2 = "Chicken";
+            $id2 = 2;
             $test_store = new Store($name, $id);
             $test_store->save();
-
-            $name2 = "Chicken";
-            $test_store2 = new Store($name2, $id);
+            $test_store2 = new Store($name2, $id2);
             $test_store2->save();
 
 
