@@ -127,27 +127,27 @@
             $this->assertEquals("Chicken", $test_store->getName());
         }
 
-        function testDelete()
-        {
+            function testDelete()
+            {
 
-            //Arrange
-            $name = "Chicken";
-            $id = 1;
-            $test_brand = new Brand($name, $id);
-            $test_brand->save();
+                //Arrange
+                $name = "Chicken";
+                $id = 1;
+                $test_brand = new Brand($name, $id);
+                $test_brand->save();
 
-            $name = "Wings";
-            $id2 = 2;
-            $test_store = new Store($name, $id2);
-            $test_store->save();
+                $name = "Wings";
+                $id2 = 2;
+                $test_store = new Store($name, $id2);
+                $test_store->save();
 
-            //Act
-            $test_store->addBrand($test_brand);
-            $test_store->delete();
+                //Act
+                $test_store->addBrand($test_brand);
+                $test_store->delete();
 
-            //Assert
-            $this->assertEquals([], $test_brand->getStores());
-        }
+                //Assert
+                $this->assertEquals([], $test_brand->getStores());
+            }
 
         function testAddBrand()
         {
