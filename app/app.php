@@ -5,9 +5,9 @@
     require_once __DIR__."/../src/Brand.php";
 
     $app = new Silex\Application();
-    $server = 'mysql://b933e4e535f56e:157217c4@us-cdbr-iron-east-02.cleardb.net/heroku_b63e64737fc3c2a?reconnect=true';
-    $username = 'root';
-    $password = 'root';
+    $server = 'mysql:host=us-cdbr-iron-east-02.cleardb.net;dbname=heroku_b63e64737fc3c2a?reconnect=true';
+    $username = 'b933e4e535f56e';
+    $password = '157217c4';
     $DB = new PDO($server, $username, $password);
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
