@@ -5,10 +5,10 @@
     require_once __DIR__."/../src/Brand.php";
 
     $app = new Silex\Application();
-    // $server = 'mysql:host=localhost;dbname=shoes';
-    // $username = 'root';
-    // $password = 'root';
-    // $DB = new PDO($server, $username, $password);
+    $server = 'mysql:host=localhost;dbname=shoes';
+    $username = 'root';
+    $password = 'root';
+    $DB = new PDO($server, $username, $password);
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
       'twig.path' => array (
