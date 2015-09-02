@@ -5,7 +5,7 @@
     require_once __DIR__."/../src/Brand.php";
 
     $app = new Silex\Application();
-    $server = 'mysql:host=localhost;dbname=shoes';
+    $server = 'mysql://b933e4e535f56e:157217c4@us-cdbr-iron-east-02.cleardb.net/heroku_b63e64737fc3c2a?reconnect=true';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
