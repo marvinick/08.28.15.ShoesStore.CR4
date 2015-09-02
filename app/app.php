@@ -5,6 +5,12 @@
     require_once __DIR__."/../src/Brand.php";
 
     $app = new Silex\Application();
+
+    // $server = 'mysql:host=localhost;dbname=shoes';
+    // $username = 'root';
+    // $password = 'root';
+    // $DB = new PDO($server, $username, $password);
+
     $server = 'mysql:host=us-cdbr-iron-east-02.cleardb.net;dbname=heroku_b63e64737fc3c2a';
     $username = 'b933e4e535f56e';
     $password = '157217c4';
